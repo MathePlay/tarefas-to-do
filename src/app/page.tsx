@@ -42,10 +42,10 @@ export default function Home() {
 
 
 
-      <div className="flex flex-1 flex-col h-full w-full bg-no-repeat bg-cover bg-center rounded-tl-lg overflow-hidden bg-[url(https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg)]">
+      <div  className="flex flex-1 flex-col h-full w-full bg-no-repeat bg-cover bg-center rounded-tl-xl overflow-hidden bg-[url(https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg)]">
         <header className='flex flex-col h-32 w-full justify-end'>
-          <h1 className='mt-9 mx-12 text-3xl font-semibold'>Meu Dia</h1>
-          <DataAtual className="mx-12 mb-3 text-sm font-light"/>
+          <h1 className='mt-9 mx-12 text-3xl font-semibold select-none'>Meu Dia</h1>
+          <DataAtual className="mx-12 mb-3 text-sm font-light select-none"/>
         </header>
 
         <div className='flex flex-1 flex-col h-full justify-between px-12' >
@@ -63,6 +63,7 @@ export default function Home() {
     </div>
   )
 }
+
 
 function DataAtual({className}: any) {
     
