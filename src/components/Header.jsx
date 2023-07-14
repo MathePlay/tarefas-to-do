@@ -3,7 +3,7 @@ import { Search } from "lucide-react";
 export default function Header() {
     return (
         <header className="flex px-7 py-2 h-12 w-full bg-[#1b1a19] border-b border-[#484644] justify-between">
-            <div className="w-[8.2rem] flex flex-col items-center">
+            <div className="w-[9rem] flex flex-col items-center">
                 <h1 className="font-semibold text-lg leading-none p-0">Minhas Tarefas</h1>
                 <span className="font-light text-xs">By: Matheus Doerzbacher</span>
             </div>
@@ -15,7 +15,7 @@ export default function Header() {
                     <input type="text" placeholder="Pesquisar" className="w-full px-2 bg-transparent outline-none" />
                 </form>
             </div>
-            <div className="hidden sm:flex w-[8.2rem]"></div>
+            <div className="hidden sm:flex w-[9rem]"></div>
         </header>
     )
 }
