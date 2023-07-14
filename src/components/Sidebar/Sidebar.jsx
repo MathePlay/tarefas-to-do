@@ -1,3 +1,4 @@
+"use client"
 import { Search, SunMedium, ShoppingCart, Home as HomeIcon, Menu } from 'lucide-react'
 import SidebarMenu from './SidebarMenu'
 import { useEffect, useState } from 'react'
