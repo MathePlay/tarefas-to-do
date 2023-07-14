@@ -12,6 +12,7 @@ module.exports = {
         'select-color': '#76b9ed',
         'star-color': '#e0a8b3',
         'home-color': '#84b09d',
+        'submenu-selected-color': '#2d2d2d'
       },
     },
   },
