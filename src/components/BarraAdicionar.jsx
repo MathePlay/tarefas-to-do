@@ -1,16 +1,32 @@
 "use client"
+
 import { useEffect, useState } from 'react'
 import { Circle, Plus } from 'lucide-react'
 
-export default function BarraAdicionar() {
+export default function BarraAdicionar({AddTarefa}) {
+
     const [inFocus, setInFocus] = useState('')
+    const [tarefa, setTarefa] = useState('')
+
+    function AdicionarTarefa(e){
+        AddTarefa(tarefa)
+        console.log(tarefa)
+    }
+
+    
 
     return (
-        <form action="" className='w-full h-12  flex items-center rounded bg-[#252423]'>
+        <form 
+            onSubmit={AdicionarTarefa}
+            action="" 
+            className=' flex w-full h-12 items-center rounded bg-[#252423] '>
             <button className='px-5 py-3 text-[#55a4f0] '>
                 {!inFocus ? <Plus size={23} className=''/> : <Circle size={23} className=''/>}
             </button>
-            <input type="text" placeholder="Adicionar uma tarefa" onChange={(i) => setInFocus(i.target.value)}
+            <input type="text" placeholder="Adicionar uma tarefa" value={tarefa} onChange={(i) => {
+                setInFocus(i.target.value)
+                setTarefa(i.target.value)
+            }}
                 className="w-full h-full pr-2 bg-transparent outline-none placeholder:text-[#55a4f0] focus:placeholder:text-zinc-100 " 
             />
         </form>
