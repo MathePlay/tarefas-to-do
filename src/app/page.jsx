@@ -1,5 +1,7 @@
 "use client"
+import { SunIcon } from 'lucide-react'
 import BarraAdicionar from '../components/BarraAdicionar'
+import TarefaConcluida from '../components/TarefaConcluida'
 import HeaderMain from '../components/HeaderMain'
 import Tarefa from '../components/Tarefa'
 import {useEffect, useState} from 'react'
@@ -60,7 +62,10 @@ export default function Home() {
 
   return (
     <>
-      <HeaderMain nome="Meu Dia" />
+      <HeaderMain nome="Meu Dia">
+        <SunIcon/>
+      </HeaderMain>
+
       <BarraAdicionar addTarefa={adicionarTarefa}/>
 
       {tarefas.filter(item => item.concluido === false && item.data === dataAtual.toDateString()).map((item) => (
@@ -70,7 +75,7 @@ export default function Home() {
       {tarefas.filter(item => item.concluido === true && item.data === dataAtual.toDateString()).length > 0 ? <h1 className='mt-5'>Concluidas</h1>: ""}
 
       {tarefas.filter(item => item.concluido === true && item.data === dataAtual.toDateString()).map((item) => (
-        <Tarefa key={item.id} nome={item.nome} deletarTarefas={() => deletarTarefa(item.id)}/>
+        <TarefaConcluida key={item.id} nome={item.nome} deletarTarefas={() => deletarTarefa(item.id)}/>
       ))}
 
     </>

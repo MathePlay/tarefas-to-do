@@ -20,7 +20,7 @@ export default function Sidebar() {
     }
 
     return (
-        <aside className={`flex flex-col sm:py-7 bg-[#252423] h-full ${esconderMenu ? 'w-18' : 'sm:w-48 lg:w-72'}`}>
+        <aside className={`flex flex-col sm:py-7 bg-[#252423] h-full ${esconderMenu ? 'w-18' : 'sm:w-48 lg:w-72' }`}>
             <button onClick={hiddenMenu} className='ml-6 mb-5 hidden sm:flex'>
                 <Menu size={20} />
             </button>
