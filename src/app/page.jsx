@@ -28,13 +28,17 @@ export default function Home() {
     }
   }
 
+  function deletarTarefa(removerTarefa){
+    setTarefas(tarefas.filter(item => item !== removerTarefa))
+  }
+
   return (
     <>
       <HeaderMain nome="Meu Dia" />
       <BarraAdicionar addTarefa={adicionarTarefa}/>
 
-      {tarefas.map(item => (
-        <Tarefa key={item} nome={item}/>
+      {tarefas.map((item, i) => (
+        <Tarefa key={i} nome={item} deletarTarefas={deletarTarefa}/>
       ))}
 
     </>
