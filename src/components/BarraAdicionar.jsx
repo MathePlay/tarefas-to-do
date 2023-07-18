@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { Circle, Plus } from 'lucide-react'
 
-export default function BarraAdicionar({ addTarefa }) {
+export default function BarraAdicionar({ addTarefa, compras}) {
     const [inFocus, setInFocus] = useState('')
     const [tarefa, setTarefa] = useState('')
 
@@ -26,7 +26,7 @@ export default function BarraAdicionar({ addTarefa }) {
             <input 
                 id='barra'
                 type="text"
-                placeholder="Adicionar uma tarefa"
+                placeholder={compras ? "Adicinar um item" : "Adicionar uma tarefa"}
                 value={tarefa}
                 onKeyUp={(e) => {
                     if (e.code === "Enter" || e.code === "NumpadEnter") {

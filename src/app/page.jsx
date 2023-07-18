@@ -19,7 +19,6 @@ export default function Home() {
         setTarefas(JSON.parse(tarefasStorage))
     }
   },[])
-
   
   useEffect(() => {
     localStorage.setItem('@minhastarefas', JSON.stringify(tarefas))
