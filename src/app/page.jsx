@@ -1,23 +1,42 @@
+"use client"
 import BarraAdicionar from '../components/BarraAdicionar'
 import HeaderMain from '../components/HeaderMain'
-import DataAtual from '../components/DataAtual'
 import Tarefa from '../components/Tarefa'
+import {useEffect, useState} from 'react'
 
 export default function Home() {
+  
+  const [tarefas, setTarefas] = useState([])
+
+  useEffect(() => {
+    const tarefasStorage = localStorage.getItem('@tarefas')
+
+    if (tarefasStorage){
+        setTarefas(JSON.parse(tarefasStorage))
+    }
+  },[])
+
+  
+  useEffect(() => {
+    localStorage.setItem('@tarefas', JSON.stringify(tarefas))
+  },[tarefas])
+
+  
+  function adicionarTarefa(newTarefa) {
+    if(newTarefa){
+      setTarefas([...tarefas, newTarefa])
+    }
+  }
+
   return (
     <>
-        <HeaderMain nome="Meu Dia"/>
-        <BarraAdicionar/>
+      <HeaderMain nome="Meu Dia" />
+      <BarraAdicionar addTarefa={adicionarTarefa}/>
 
-        {/* <div className='min-h-3/5 flex flex-col justify-between px-12 bg-blue-500 gap-1' >
-            <Tarefa />
-            <Tarefa />
-            <Tarefa />
-            <Tarefa />
-            <Tarefa />
-        </div>
+      {tarefas.map(item => (
+        <Tarefa key={item} nome={item}/>
+      ))}
 
-        <BarraAdicionar /> */}
     </>
   )
 }
