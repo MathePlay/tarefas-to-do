@@ -2,24 +2,7 @@
 import { Check } from 'lucide-react'
 import { useState } from 'react'
 
-export default function Tarefas() {
-
-    const [tarefasAdd, setTarefasAdd] = useState(["Lavar a casa", "Lavar o carro"])
-
-    function addTarefa(){
-        
-    }
-
-    return (
-        <>
-            {tarefasAdd.map(item => <Tarefa nome={item} />)}
-        </>
-    )
-
-
-}
-
-function Tarefa({ nome }) {
+export default function Tarefa({ nome }) {
 
     return (
         <div className='flex items-center mt-2 w-full h-12 bg-[#252423] rounded hover:bg-[#323130]  '>
