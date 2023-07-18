@@ -3,7 +3,6 @@ import BarraAdicionar from "@/components/BarraAdicionar"
 import HeaderMain from "../../components/HeaderMain"
 import { ShoppingCart } from "lucide-react"
 import { useEffect, useState } from "react"
-import ItemCompra from "@/components/ItemCompra"
 import TarefaConcluida from "@/components/TarefaConcluida"
 import Tarefa from "@/components/Tarefa"
 
