@@ -11,7 +11,7 @@ export default function Home() {
   const [tarefas, setTarefas] = useState([])
 
   useEffect(() => {
-    const tarefasStorage = localStorage.getItem('@tarefas')
+    const tarefasStorage = localStorage.getItem('@minhastarefas')
 
     if (tarefasStorage){
         setTarefas(JSON.parse(tarefasStorage))
@@ -20,7 +20,7 @@ export default function Home() {
 
   
   useEffect(() => {
-    localStorage.setItem('@tarefas', JSON.stringify(tarefas))
+    localStorage.setItem('@minhastarefas', JSON.stringify(tarefas))
   },[tarefas])
 
   
