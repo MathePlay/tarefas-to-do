@@ -2,10 +2,10 @@
 import { Check } from 'lucide-react'
 import { useState } from 'react'
 
-export default function Tarefa({ nome, deletarTarefas }) {
+export default function Tarefa({ nome, deletarTarefas, id}) {
 
     function deletarTarefa() {
-        deletarTarefas(nome)
+        deletarTarefas()
     }
 
     return (

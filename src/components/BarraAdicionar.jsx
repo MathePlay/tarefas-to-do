@@ -2,40 +2,44 @@
 import { useEffect, useState } from 'react'
 import { Circle, Plus } from 'lucide-react'
 
-export default function BarraAdicionar({addTarefa}) {
+export default function BarraAdicionar({ addTarefa }) {
     const [inFocus, setInFocus] = useState('')
     const [tarefa, setTarefa] = useState('')
 
-    function addTarefas(novaTarefa){
+    function addTarefas(novaTarefa) {
         addTarefa(novaTarefa)
     }
 
     return (
         <div className='w-full h-12  flex items-center rounded bg-[#252423]' >
-            
-            <button 
-                className='px-5 py-3 text-[#55a4f0]' 
-                onClick={() => {
-                    addTarefas(tarefa),
-                    setTarefa("")
-                }}>
-                {!inFocus ? <Plus size={23} className=''/> : <Circle size={23} className='hover:text-[#8ec7ff]'/>}
-            </button>
-            
+            <label id='barra'>
+                <button
+                    className='px-5 py-3 text-[#55a4f0]'
+                    onClick={() => {
+                        addTarefas(tarefa),
+                            setTarefa("")
+                    }}>
+                    {!inFocus ? <Plus size={23} className='' /> : <Circle size={23} className='hover:text-[#8ec7ff]' />}
+                </button>
+            </label>
+
             <input 
-                type="text" 
-                placeholder="Adicionar uma tarefa" 
+                id='barra'
+                type="text"
+                placeholder="Adicionar uma tarefa"
                 value={tarefa}
                 onKeyUp={(e) => {
-                    if(e.code === "Enter" || e.code === "NumpadEnter"){
+                    if (e.code === "Enter" || e.code === "NumpadEnter") {
                         addTarefas(tarefa)
                         setTarefa("")
-                    }}}
+                    }
+                }}
                 onChange={(i) => {
                     setInFocus(i.target.value),
-                    setTarefa(i.target.value)
+                        setTarefa(i.target.value)
                 }}
-                className="w-full h-full pr-2 bg-transparent outline-none placeholder:text-[#55a4f0] focus:placeholder:text-zinc-100 " 
+                className="w-full h-full pr-2 bg-transparent outline-none placeholder:text-[#55a4f0] focus:placeholder:text-zinc-100"
+                autoComplete='off'
             />
         </div>
 
