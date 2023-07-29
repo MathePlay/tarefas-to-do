@@ -3,7 +3,6 @@ import BarraAdicionar from "@/components/BarraAdicionar";
 import HeaderMain from "../../components/HeaderMain";
 import Tarefa from "@/components/Tarefas/Tarefa";
 import { HomeIcon } from "lucide-react";
-import TarefaConcluida from "@/components/Tarefas/TarefaConcluida";
 import useTarefas from "../../data/hooks/useTarefas";
 
 export default function Tarefas() {
@@ -37,10 +36,11 @@ export default function Tarefas() {
       {tarefas
         .filter((item) => item.concluido === true)
         .map((item) => (
-          <TarefaConcluida
+          <Tarefa
             key={item.id}
             nome={item.nome}
             deletarTarefas={() => deletarTarefa(item.id)}
+            concluida
           />
         ))}
     </>

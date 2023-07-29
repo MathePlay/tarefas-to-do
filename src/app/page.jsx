@@ -1,7 +1,6 @@
 "use client";
 import { SunIcon } from "lucide-react";
 import BarraAdicionar from "../components/BarraAdicionar";
-import TarefaConcluida from "../components/Tarefas/TarefaConcluida";
 import HeaderMain from "../components/HeaderMain";
 import Tarefa from "../components/Tarefas/Tarefa";
 import useTarefas from "@/data/hooks/useTarefas";
@@ -49,10 +48,11 @@ export default function Home() {
             item.concluido === true && item.data === dataAtual.toDateString()
         )
         .map((item) => (
-          <TarefaConcluida
+          <Tarefa
             key={item.id}
             nome={item.nome}
             deletarTarefas={() => deletarTarefa(item.id)}
+            concluida
           />
         ))}
     </>

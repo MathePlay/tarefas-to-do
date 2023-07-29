@@ -34,21 +34,21 @@ export default function useListaCompras() {
         }
     }
 
-    function concluirTarefa(item: string) {
+    function concluirTarefa(idTarefa: string) {
 
-        const indexTarefa = (lista.findIndex(item => item.id === item))
+        const indexTarefa = (lista.findIndex(tarefa => tarefa.id === idTarefa))
 
         const tarefaSelecionada = lista[indexTarefa]
         tarefaSelecionada.concluido = true
 
-        setLista(lista.filter(item => item.id !== item))
+        setLista(lista.filter(tarefa => tarefa.id !== idTarefa))
 
         setLista([...lista])
 
     }
 
-    function deletarTarefa(item: string) {
-        setLista(lista.filter(item => item.id !== item))
+    function deletarTarefa(idTarefa: string) {
+        setLista(lista.filter(tarefa => tarefa.id !== idTarefa))
     }
 
     return {

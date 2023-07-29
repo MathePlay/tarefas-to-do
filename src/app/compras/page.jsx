@@ -3,7 +3,6 @@ import BarraAdicionar from "@/components/BarraAdicionar";
 import HeaderMain from "../../components/HeaderMain";
 import { ShoppingCart } from "lucide-react";
 import useListaCompras from "@/data/hooks/useListaCompras";
-import TarefaConcluida from "@/components/Tarefas/TarefaConcluida";
 import Tarefa from "@/components/Tarefas/Tarefa";
 
 export default function Compras() {
@@ -37,10 +36,11 @@ export default function Compras() {
       {lista
         .filter((item) => item.concluido === true)
         .map((item) => (
-          <TarefaConcluida
+          <Tarefa
             key={item.id}
             nome={item.nome}
             deletarTarefas={() => deletarTarefa(item.id)}
+            concluida
           />
         ))}
     </>

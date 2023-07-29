@@ -11,7 +11,7 @@ export default function BarraAdicionar({ addTarefa, compras}) {
     }
 
     return (
-        <div className='w-full h-12  flex items-center rounded bg-[#252423]' >
+        <div className='w-full h-12  flex items-center rounded bg-[#252423] mb-3' >
             <label id='barra'>
                 <button
                     className='px-5 py-3 text-[#55a4f0]'
@@ -42,14 +42,5 @@ export default function BarraAdicionar({ addTarefa, compras}) {
                 autoComplete='off'
             />
         </div>
-
-
-        // <div className='min-h-1/5 w-full'>
-        //     <div className='flex items-center w-full h-12 mt-5 bg-black/50 rounded backdrop-blur-md hover:bg-black/40 '>
-        //         <form type="submit" className='flex w-full h-full'>
-        //             <input type="text" placeholder="Adicionar uma tarefa" className='w-full bg-white/0 text-sm placeholder:text-zinc-200 text-zinc-200 outline-none focus:placeholder-transparent' />
-        //         </form>
-        //     </div>
-        // </div>
     )
 }
