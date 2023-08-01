@@ -1,6 +1,5 @@
 "use client";
 import { Check, Star } from "lucide-react";
-import { FaStar } from "react-icons/fa";
 
 export default function Tarefa({
   nome,
