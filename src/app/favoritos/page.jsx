@@ -15,7 +15,6 @@ export default function Favoritos() {
       <HeaderMain nome="Favoritos">
         <Star />
       </HeaderMain>
-      <BarraAdicionar addTarefa={adicionarTarefa} />
 
       {tarefas
         .filter((item) => item.concluido == false && item.favorito == true)
