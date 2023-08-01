@@ -30,6 +30,7 @@ export default function useTarefas() {
         nome: tarefa,
         concluido: false,
         data: dataAtual.toDateString(),
+        favorito: false,
       };
 
       setTarefas([...tarefas, objetoTafefa]);
@@ -51,10 +52,28 @@ export default function useTarefas() {
     setTarefas(tarefas.filter((item) => item.id !== tarefa));
   }
 
+  function favoritar(tarefa: string) {
+    const indexTarefa = tarefas.findIndex((item) => item.id === tarefa);
+
+    const tarefaSelecionada = tarefas[indexTarefa];
+    if(tarefaSelecionada.favorito === true) {
+      tarefaSelecionada.favorito = false
+    } else {
+      tarefaSelecionada.favorito = true
+    }
+
+    setTarefas(tarefas.filter((item) => item.id !== tarefa));
+
+    setTarefas([...tarefas]);
+    
+      
+  }
+
   return {
     tarefas,
     adicionarTarefa,
     concluirTarefa,
     deletarTarefa,
+    favoritar,
   };
 }
