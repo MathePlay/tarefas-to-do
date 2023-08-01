@@ -1,6 +1,5 @@
 "use client";
 import { Check, Star } from "lucide-react";
-import { FaStar } from "react-icons/fa";
 
 export default function Tarefa({
   nome,
@@ -52,16 +51,8 @@ export default function Tarefa({
       {!compras && 
         <div>
           {!concluida && (
-            <div className="mr-2">
-              {isfavorito ? (
-                <div className="cursor-pointer" onClick={favoritar}>
-                  <FaStar size={20} />
-                </div>
-              ) : (
-                <div className="cursor-pointer" onClick={favoritar}>
-                  <Star size={20} />
-                </div>
-              )}
+            <div className="mr-2 cursor-pointer" onClick={favoritar}>
+                  <Star size={20} className={`${ isfavorito ? "text-zinc-100" : "text-zinc-600"} transition-colors duration-300`}/>
             </div>
         )}
         </div>
