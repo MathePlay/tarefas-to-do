@@ -6,7 +6,7 @@ import { HomeIcon } from "lucide-react";
 import useTarefas from "../../data/hooks/useTarefas";
 
 export default function Tarefas() {
-  const { adicionarTarefa, concluirTarefa, deletarTarefa, tarefas } =
+  const { adicionarTarefa, concluirTarefa, deletarTarefa, tarefas, favoritar } =
     useTarefas();
 
   return (
