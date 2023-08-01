@@ -56,17 +56,15 @@ export default function useTarefas() {
     const indexTarefa = tarefas.findIndex((item) => item.id === tarefa);
 
     const tarefaSelecionada = tarefas[indexTarefa];
-    if(tarefaSelecionada.favorito === true) {
-      tarefaSelecionada.favorito = false
+    if (tarefaSelecionada.favorito === true) {
+      tarefaSelecionada.favorito = false;
     } else {
-      tarefaSelecionada.favorito = true
+      tarefaSelecionada.favorito = true;
     }
 
     setTarefas(tarefas.filter((item) => item.id !== tarefa));
 
     setTarefas([...tarefas]);
-    
-      
   }
 
   return {

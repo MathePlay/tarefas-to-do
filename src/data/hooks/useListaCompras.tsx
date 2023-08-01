@@ -1,60 +1,56 @@
 import { useCallback, useEffect, useState } from "react";
 
 export default function useListaCompras() {
-    const [lista, setLista] = useState<any []>([])
+  const [lista, setLista] = useState<any[]>([]);
 
-    useEffect(() => {
-        const tarefasStorage = localStorage.getItem('@minhascompras')
+  useEffect(() => {
+    const tarefasStorage = localStorage.getItem("@minhascompras");
 
-        if (tarefasStorage) {
-            setLista(JSON.parse(tarefasStorage))
-        }
-    }, [])
-
-
-    useEffect(() => {
-        localStorage.setItem('@minhascompras', JSON.stringify(lista))
-    }, [lista])
-
-
-    function adicionarTarefa(item: string) {
-        const idTarefa = Math.floor(Date.now() * Math.random()).toString(36)
-
-        if (item) {
-            const dataAtual = new Date
-
-            const objetoTafefa = {
-                id: idTarefa,
-                nome: item,
-                concluido: false,
-                data: dataAtual.toDateString()
-            }
-
-            setLista([...lista, objetoTafefa])
-        }
+    if (tarefasStorage) {
+      setLista(JSON.parse(tarefasStorage));
     }
+  }, []);
 
-    function concluirTarefa(idTarefa: string) {
+  useEffect(() => {
+    localStorage.setItem("@minhascompras", JSON.stringify(lista));
+  }, [lista]);
 
-        const indexTarefa = (lista.findIndex(tarefa => tarefa.id === idTarefa))
+  function adicionarTarefa(item: string) {
+    const idTarefa = Math.floor(Date.now() * Math.random()).toString(36);
 
-        const tarefaSelecionada = lista[indexTarefa]
-        tarefaSelecionada.concluido = true
+    if (item) {
+      const dataAtual = new Date();
 
-        setLista(lista.filter(tarefa => tarefa.id !== idTarefa))
+      const objetoTafefa = {
+        id: idTarefa,
+        nome: item,
+        concluido: false,
+        data: dataAtual.toDateString(),
+      };
 
-        setLista([...lista])
-
+      setLista([...lista, objetoTafefa]);
     }
+  }
 
-    function deletarTarefa(idTarefa: string) {
-        setLista(lista.filter(tarefa => tarefa.id !== idTarefa))
-    }
+  function concluirTarefa(idTarefa: string) {
+    const indexTarefa = lista.findIndex((tarefa) => tarefa.id === idTarefa);
 
-    return {
-        lista,
-        adicionarTarefa,
-        concluirTarefa,
-        deletarTarefa
-    }
+    const tarefaSelecionada = lista[indexTarefa];
+    tarefaSelecionada.concluido = true;
+
+    setLista(lista.filter((tarefa) => tarefa.id !== idTarefa));
+
+    setLista([...lista]);
+  }
+
+  function deletarTarefa(idTarefa: string) {
+    setLista(lista.filter((tarefa) => tarefa.id !== idTarefa));
+  }
+
+  return {
+    lista,
+    adicionarTarefa,
+    concluirTarefa,
+    deletarTarefa,
+  };
 }
