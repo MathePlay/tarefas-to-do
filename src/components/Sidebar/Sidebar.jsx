@@ -6,6 +6,7 @@ import {
   ShoppingCart,
   Home as HomeIcon,
   Menu,
+  Star,
 } from "lucide-react";
 import SidebarMenu from "./SidebarMenu";
 import { useEffect, useState } from "react";
@@ -50,6 +51,13 @@ export default function Sidebar() {
         href="/compras"
         esconderMenu={esconderMenu}
         icon={<ShoppingCart size={20} className="text-star-color" />}
+      />
+
+      <SidebarMenu
+        nome="Favoritos"
+        href="/favoritos"
+        esconderMenu={esconderMenu}
+        icon={<Star size={20} className="text-yellow-700" />}
       />
     </aside>
   );

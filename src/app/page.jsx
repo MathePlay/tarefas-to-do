@@ -6,7 +6,7 @@ import Tarefa from "../components/Tarefas/Tarefa";
 import useTarefas from "@/data/hooks/useTarefas";
 
 export default function Home() {
-  const { adicionarTarefa, concluirTarefa, deletarTarefa, tarefas } =
+  const { adicionarTarefa, concluirTarefa, deletarTarefa, tarefas, favoritar } =
     useTarefas();
 
   const dataAtual = new Date();
@@ -30,6 +30,8 @@ export default function Home() {
             nome={item.nome}
             deletarTarefas={() => concluirTarefa(item.id)}
             data={item.data}
+            isfavorito={item.favorito}
+            favoritarTarefas={() => favoritar(item.id)}
           />
         ))}
 

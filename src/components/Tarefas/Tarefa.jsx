@@ -1,5 +1,4 @@
 "use client";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Check, Star } from "lucide-react";
 import { FaStar } from "react-icons/fa";
 
@@ -8,15 +7,16 @@ export default function Tarefa({
   deletarTarefas,
   id,
   concluida,
-  favorito,
+  isfavorito,
   favoritarTarefas,
+  compras,
 }) {
   function deletarTarefa() {
     deletarTarefas();
   }
 
-  function favoritar() {
-    favoritarTarefas();
+  function favoritar(){
+    favoritarTarefas()
   }
 
   return (
@@ -49,19 +49,23 @@ export default function Tarefa({
         <span className={`text-sm`}>{nome}</span>
       </div>
 
-      {!concluida && (
-        <div className="mr-2">
-          {favorito ? (
-            <div className="cursor-pointer" onClick={favoritar}>
-              <FaStar size={20} />
+      {!compras && 
+        <div>
+          {!concluida && (
+            <div className="mr-2">
+              {isfavorito ? (
+                <div className="cursor-pointer" onClick={favoritar}>
+                  <FaStar size={20} />
+                </div>
+              ) : (
+                <div className="cursor-pointer" onClick={favoritar}>
+                  <Star size={20} />
+                </div>
+              )}
             </div>
-          ) : (
-            <div className="cursor-pointer" onClick={favoritar}>
-              <Star size={20} />
-            </div>
-          )}
+        )}
         </div>
-      )}
+      }
     </div>
   );
 }

@@ -24,6 +24,7 @@ export default function Compras() {
             nome={item.nome}
             deletarTarefas={() => concluirTarefa(item.id)}
             data={item.data}
+            compras
           />
         ))}
 
