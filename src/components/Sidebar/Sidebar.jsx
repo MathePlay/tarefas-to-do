@@ -30,6 +30,15 @@ export default function Sidebar() {
                 esconderMenu={esconderMenu}
                 icon={<SunMedium size={20} className='text-zinc-400' />}
             />
+           
+            <SidebarMenu 
+                nome="Tarefas" 
+                href="/tarefas" 
+                esconderMenu={esconderMenu}
+                icon={<HomeIcon size={20} 
+                className='text-home-color' />} 
+            />
+
             <SidebarMenu 
                 nome="Compras" 
                 href="/compras" 
@@ -37,13 +46,6 @@ export default function Sidebar() {
                 icon={<ShoppingCart 
                 size={20} 
                 className='text-star-color' />} 
-            />
-            <SidebarMenu 
-                nome="Tarefas" 
-                href="/tarefas" 
-                esconderMenu={esconderMenu}
-                icon={<HomeIcon size={20} 
-                className='text-home-color' />} 
             />
         </aside>
     )
