@@ -36,7 +36,7 @@ export default function useListaCompras() {
     const indexTarefa = lista.findIndex((tarefa) => tarefa.id === idTarefa);
 
     const tarefaSelecionada = lista[indexTarefa];
-    tarefaSelecionada.concluido = true;
+    tarefaSelecionada.concluido = !tarefaSelecionada.concluido;
 
     setLista(lista.filter((tarefa) => tarefa.id !== idTarefa));
 

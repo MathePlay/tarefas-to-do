@@ -13,7 +13,7 @@ export default function Favoritos() {
   return (
     <>
       <HeaderMain nome="Favoritos">
-        <Star />
+        <Star className="text-yellow-500"/>
       </HeaderMain>
 
       {tarefas

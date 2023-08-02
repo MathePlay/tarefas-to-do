@@ -47,18 +47,19 @@ export default function Sidebar() {
       />
 
       <SidebarMenu
+        nome="Favoritos"
+        href="/favoritos"
+        esconderMenu={esconderMenu}
+        icon={<Star size={20} className="text-yellow-500" />}
+      />
+      
+      <SidebarMenu
         nome="Compras"
         href="/compras"
         esconderMenu={esconderMenu}
         icon={<ShoppingCart size={20} className="text-star-color" />}
       />
 
-      <SidebarMenu
-        nome="Favoritos"
-        href="/favoritos"
-        esconderMenu={esconderMenu}
-        icon={<Star size={20} className="text-yellow-700" />}
-      />
     </aside>
   );
 }

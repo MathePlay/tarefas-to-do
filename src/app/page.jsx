@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <HeaderMain nome="Meu Dia">
-        <SunIcon />
+        <SunIcon  className="text-zinc-400"/>
       </HeaderMain>
 
       <BarraAdicionar addTarefa={adicionarTarefa} />

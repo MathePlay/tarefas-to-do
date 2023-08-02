@@ -12,7 +12,7 @@ export default function Compras() {
   return (
     <>
       <HeaderMain nome="Compras">
-        <ShoppingCart />
+        <ShoppingCart className="text-star-color"/>
       </HeaderMain>
       <BarraAdicionar addTarefa={adicionarTarefa} compras />
 

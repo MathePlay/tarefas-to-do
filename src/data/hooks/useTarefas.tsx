@@ -41,11 +41,7 @@ export default function useTarefas() {
     const indexTarefa = tarefas.findIndex((item) => item.id === tarefa);
 
     const tarefaSelecionada = tarefas[indexTarefa];
-    if(tarefaSelecionada.concluido === true){
-      tarefaSelecionada.concluido = false;
-    } else {
-      tarefaSelecionada.concluido = true;
-    }
+      tarefaSelecionada.concluido = !tarefaSelecionada.concluido;
 
     setTarefas(tarefas.filter((item) => item.id !== tarefa));
 

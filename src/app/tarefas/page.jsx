@@ -12,7 +12,7 @@ export default function Tarefas() {
   return (
     <>
       <HeaderMain nome="Tarefas">
-        <HomeIcon />
+        <HomeIcon className="text-home-color"/>
       </HeaderMain>
       <BarraAdicionar addTarefa={adicionarTarefa} />
 
