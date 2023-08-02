@@ -22,7 +22,7 @@ export default function Favoritos() {
           <Tarefa
             key={item.id}
             nome={item.nome}
-            deletarTarefas={() => concluirTarefa(item.id)}
+            concluirATarefa={() => concluirTarefa(item.id)}
             data={item.data}
             isfavorito={item.favorito}
             favoritarTarefas={() => favoritar(item.id)}
@@ -41,6 +41,7 @@ export default function Favoritos() {
           <Tarefa
             key={item.id}
             nome={item.nome}
+            concluirATarefa={() => concluirTarefa(item.id)}
             deletarTarefas={() => deletarTarefa(item.id)}
             concluida
           />

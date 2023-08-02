@@ -1,21 +1,26 @@
 "use client";
-import { Check, Star } from "lucide-react";
+import { Check, Star, Trash, Trash2 } from "lucide-react";
 
 export default function Tarefa({
   nome,
   deletarTarefas,
-  id,
+  concluirATarefa,
   concluida,
   isfavorito,
   favoritarTarefas,
   compras,
 }) {
-  function deletarTarefa() {
+
+  function deletar() {
     deletarTarefas();
   }
 
+  function concluir(){
+    concluirATarefa();
+  }
+
   function favoritar(){
-    favoritarTarefas()
+    favoritarTarefas();
   }
 
   return (
@@ -31,7 +36,7 @@ export default function Tarefa({
     >
       <div className="flex items-center">
         <div>
-          <button className={`rounded-full`} onClick={deletarTarefa}>
+          <button className={`rounded-full`} onClick={concluir}>
             <div
               className={`h-5 w-5 border-2 rounded-full group mx-4 flex items-center justify-center ${
                 concluida && "border-zinc-500"
@@ -50,9 +55,15 @@ export default function Tarefa({
 
       {!compras && 
         <div>
-          {!concluida && (
+          {!concluida ? (
             <div className="mr-2 cursor-pointer" onClick={favoritar}>
-                  <Star size={20} className={`${ isfavorito ? "text-zinc-100" : "text-zinc-600"} transition-colors duration-300`}/>
+                  <Star size={20} className={` ${ isfavorito ? "text-zinc-100" : "text-zinc-600"} transition-colors duration-300
+                `} />
+            </div>
+        ) : (
+          <div className="mr-2 cursor-pointer" onClick={deletar}>
+                  <Trash2 size={20} className={` hover:text-red-800 transition-colors duration-300
+                `} />
             </div>
         )}
         </div>
