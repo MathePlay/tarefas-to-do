@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function useTarefas() {
   const [tarefas, setTarefas] = useState<any[]>([]);
@@ -46,10 +48,15 @@ export default function useTarefas() {
     setTarefas(tarefas.filter((item) => item.id !== tarefa));
 
     setTarefas([...tarefas]);
+
+    if (tarefaSelecionada.concluido === true) { 
+      toast.success("Tarefas concluida")
+    }
   }
 
   function deletarTarefa(tarefa: string) {
     setTarefas(tarefas.filter((item) => item.id !== tarefa));
+    toast.error("Tarefa deleteda")
   }
 
   function favoritar(tarefa: string) {
@@ -57,11 +64,8 @@ export default function useTarefas() {
 
     const tarefaSelecionada = tarefas[indexTarefa];
     
-    if (tarefaSelecionada.favorito === true) {
-      tarefaSelecionada.favorito = false;
-    } else {
-      tarefaSelecionada.favorito = true;
-    }
+    
+    tarefaSelecionada.favorito = !tarefaSelecionada.favorito
 
     setTarefas(tarefas.filter((item) => item.id !== tarefa));
 

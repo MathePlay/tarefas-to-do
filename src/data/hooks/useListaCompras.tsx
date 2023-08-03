@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function useListaCompras() {
   const [lista, setLista] = useState<any[]>([]);
@@ -41,10 +43,15 @@ export default function useListaCompras() {
     setLista(lista.filter((tarefa) => tarefa.id !== idTarefa));
 
     setLista([...lista]);
+    
+    if (tarefaSelecionada.concluido === true) { 
+      toast.success("Item no carrinho")
+    }
   }
 
   function deletarTarefa(idTarefa: string) {
     setLista(lista.filter((tarefa) => tarefa.id !== idTarefa));
+    toast.error("Item deletado")
   }
 
   return {
